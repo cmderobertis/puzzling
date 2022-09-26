@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 public class PuzzleJava {
     Random rand = new Random();
@@ -23,5 +22,21 @@ public class PuzzleJava {
         return password;
     }
 
+    String[] getNewPasswordSet(int length) {
+        String[] passwordSet = new String[length];
+        for (int i = 0; i < length; i++) {
+            passwordSet[i] = generatePassword();
+        }
+        return passwordSet;
+    }
 
+    String[] shuffleArray(String[] array) {
+        for (int i = 0; i < array.length; i++) {
+            int randIdx = rand.nextInt(array.length);
+            String temp = array[randIdx];
+            array[randIdx] = array[i];
+            array[i] = temp;
+        }
+        return array;
+    }
 }
